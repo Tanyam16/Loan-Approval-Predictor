@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: loan-approval-predictor
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app_v2:app
+    plan: free

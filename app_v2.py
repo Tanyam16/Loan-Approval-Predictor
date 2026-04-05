@@ -15,22 +15,10 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # ── Load model pipeline ───────────────────────────────────────
-import importlib.util, os, sys
-
-spec = importlib.util.spec_from_file_location(
-           "loan_model_v2",
-           os.path.join(os.path.dirname(os.path.abspath(__file__)), "loan_model_v2.py")
-       )
-mod = importlib.util.module_from_spec(spec)   # ← was load_from_spec
-spec.loader.exec_module(mod)
-
-# Pull into local scope
-X             = mod.X
-scaler        = mod.scaler
-trad_models   = mod.trad_models
-alt_models    = mod.alt_models
-trad_features = mod.trad_features
-alt_features  = mod.alt_features
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+exec(open(os.path.join(os.path.dirname(
+    os.path.abspath(__file__)), "loan_model_v2.py")).read())
 
 app = Flask(__name__)
 
