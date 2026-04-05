@@ -1,6 +1,8 @@
-flask
-pandas
-numpy
-scikit-learn
-imbalanced-learn
-gunicorn
+Flask==2.3.2
+pandas==2.2.3
+numpy==2.1.1
+scikit-learn==1.7.2
+imbalanced-learn==0.14.1
+matplotlib==3.9.2
+seaborn==0.13.2
+gunicorn==21.2.0
